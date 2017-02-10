@@ -23,8 +23,8 @@ Administración de la tienda en linea online.
 
 Base: **`/TiendaAPI/v1/`**
 
-`GET` **/tiendas/{idTienda}**
-`GET` **/tiendas/{idTienda}/categorias**
+`GET` **/tiendas/{idTienda}**  
+`GET` **/tiendas/{idTienda}/categorias**  
 
 ### UsuariosAPI  
 Administración de los usuarios de la tienda (comprador y vendedor).
@@ -32,8 +32,8 @@ Administración de los usuarios de la tienda (comprador y vendedor).
 Base: **`/ClientesAPI/v1/`**
 
 `GET` **/usuarios/{idUsuario}**  
-`POST` **/usuarios/{idUsuario}/login**
-`GET` **/usuarios/{idUsuario}/carritoCompras**
+`POST` **/usuarios/{idUsuario}/login**  
+`GET` **/usuarios/{idUsuario}/carritoCompras**  
 `GET` **/usuarios/{idUsuario}/listaDeseos**  
 
 ### OrdenesAPI  
@@ -42,7 +42,7 @@ Administración de las ordenes de compra del cliente.
 Base: **`/OrdenesAPI/v1/`**
 
 `GET` **/usuarios/{idUsuario}/ordenes**  
-`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**
+`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
 
 ### ProductosAPI
 Adminsitración de los productos de la tienda.
