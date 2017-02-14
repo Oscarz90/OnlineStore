@@ -8,10 +8,10 @@ LICENSE
 .gitignore
 .ambiente
 documentacion.md
-index.js
 package.json
 node_modules/
 app/
+  index.js
   configuracion/
     ambientes/ (desarrollo|qa|preproduccion|produccion)
       desarrollo.js*
@@ -49,16 +49,38 @@ test/
   pruebas.js*
 ~~~
 
+~~~
+mkdir -p {NOMBRE}API/{
+  app/{
+    configuracion/{
+      ambientes
+      ,constantes
+      ,inicializadores
+      ,autenticacion}
+    ,middleware
+    ,accesoDatos
+    ,entidades
+    ,controladores
+    ,rutas
+    ,utilidades
+    ,colecciones}
+  ,lib
+  ,public
+  ,test}
+~~~
+
+`mkdir -p TiendaAPI/{app/{configuracion/{ambientes,constantes,inicializadores,autenticacion},middleware,accesoDatos,entidades,controladores,rutas,utilidades,colecciones},lib,public,test}`
+
 \* Archivos de ejemplo e ilustración.
 
 + **LICENSE:** Archivo con la licencia de software de la API.
 + **.gitignore:** Archivo git con la lista de archivos a ignorar en el commit de los archivos.
 + **.ambiente:** Archivo con la configuración del ambiente en el que se encuentra la aplicación.
 + **documentacion.md:** Documento de markdown con el listado de operaciones de la API.
-+ **index.js:** Punto inicial de la API.
 + **package.json:** Mantiene la configuración del proyecto.
 + **node_modules:** Todos los módulos descritos en el archivo package.json estarán ubicados en esta carpeta.
 + **app:** Carpeta base del codigo fuente de la API.
++ **app/index.js:** Punto inicial de la API.
 + **app/configuracion:** Archivos de configuración de la API.
 + **app/configuracion/ambientes:** Archivos con la configuración para los diferentes ambientes durante el ciclo de vida del desarrollo del API.
 + **app/configuracion/constantes:** Definición de constantes del API.

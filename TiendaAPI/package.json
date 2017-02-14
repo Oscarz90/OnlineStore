@@ -1,0 +1,34 @@
+{
+  "name": "tienda_api",
+  "version": "1.0.0",
+  "description": "RESTFul API para la administración de la tienda.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Oscarz90/OnlineStore.git"
+  },
+  "author": "Oscarz90",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Oscarz90/OnlineStore/issues"
+  },
+  "homepage": "https://github.com/Oscarz90/OnlineStore#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.16.1",
+    "change-case": "^3.0.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.2",
+    "require-dir": "^0.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

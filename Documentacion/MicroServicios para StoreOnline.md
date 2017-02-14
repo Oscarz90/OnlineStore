@@ -18,7 +18,7 @@ Descomposicion a MicroServicios
 
 A continuación se muestran las APISRESTFul que utilizará la aplicación organizadas en MicroServicios.
 
-### TiendasAPI  
+### TiendaAPI  
 Administración de la tienda en linea online.
 
 Base: **`/TiendaAPI/v1/`**
