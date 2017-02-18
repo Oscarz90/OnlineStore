@@ -12,7 +12,12 @@ module.exports = function(app) {
 
     //Aqui podemos añadir algun middleware
     //router.use(algunMiddleware)
+    //Inicializa la ruta para agregarl su funcionalidad al router
+    //var BASEURI=require('./' + nombreRutas)(router);
     
+    //Agrega el router a la ruta especifica en la aplicacion
+    //app.use('/' + changeCase.camelCase(BASEURI), router);
+
     //Inicializa la ruta para agregarl su funcionalidad al router
     var uriBase = require('./' + nombreRutas)(router);
     console.info(uriBase)
