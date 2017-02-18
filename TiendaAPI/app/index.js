@@ -1,12 +1,13 @@
 var server = require('./configuracion/inicializadores/servidor');
+var baseDatos = require('./configuracion/inicializadores/baseDatos');
 var async = require('async');
 
 
 //Inicializar modulos
 async.series(
   [
-    function inicial(callback){
-      return callback(null,"Primer paso");
+    function iniciarBaseDatos(callback){
+      baseDatos(callback);
     }
     , function iniciarServidor(callback){
       server(callback);
