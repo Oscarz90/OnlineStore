@@ -43,14 +43,7 @@ Base: **`/OrdenesAPI/v1/`**
 
 `GET` **/usuarios/{idUsuario}/ordenes**  
 `GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
-
-### ProductosAPI
-Adminsitración de los productos de la tienda.
-
-Base: **`/ProductosAPI/v1/`**
-
-`GET` **/usuarios/{idUsuario}/ordenes**  
-`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**
+`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}/productos/**  
 
 ### PagosAPI  
 Administración del pago de las ordenes de compra.
@@ -65,8 +58,8 @@ Administración del almacen y stock de los productos para la tienda.
 
 Base: **`/InventarioAPI/v1/`**
 
-`GET` **/usuarios/{idUsuario}/productos**  
-`GET` **/usuarios/{idUsuario}/productos/{idProducto}**
+`GET` **/tiendas/{idTienda}/productos/{[idProductos]*}/**  
+`GET` **/tiendas/{idTienda}/productos/**  
 
 ### EnviosAPI
 Administración del envío de las ordenes de compra al cliente.
