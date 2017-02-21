@@ -125,18 +125,27 @@ Date: Fri, 22 Nov 2013 16:37:57 GMT
 Transfer-Encoding: Identity
 
 {
-  datos:{
-    idTienda:1
-    , nombreTienda:"TiendaPrueba"
-    , categorias:{
-      datos:[...]
-    }
+  meta:{
+    id:"ASDF-123456789-QWER"
+    , code:"ERR-01234"
+    , status:404
+    , type:"OAuthException"
+    , message:"Failed for Authentication"
+    , detail:"Session has expired at unix time 1234567890."
+    , errors:[
+      //Aqui los errores especificos.
+    ]
   }
-  , error:{
-    tipo:"..."
-    , mensaje:"..."
-    , codigo:"..."
-    , href:"..."
+  , response:{
+    nombre:"tienda"
+    , categorias:{
+      data:[
+        //Aqui la informacion...
+      ]
+      , meta:{
+        
+      }
+    }
   }
 }
 ~~~
