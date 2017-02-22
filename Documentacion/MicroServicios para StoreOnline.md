@@ -43,14 +43,7 @@ Base: **`/OrdenesAPI/v1/`**
 
 `GET` **/usuarios/{idUsuario}/ordenes**  
 `GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
-
-### ProductosAPI
-Adminsitración de los productos de la tienda.
-
-Base: **`/ProductosAPI/v1/`**
-
-`GET` **/usuarios/{idUsuario}/ordenes**  
-`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**
+`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}/productos/**  
 
 ### PagosAPI  
 Administración del pago de las ordenes de compra.
@@ -65,8 +58,8 @@ Administración del almacen y stock de los productos para la tienda.
 
 Base: **`/InventarioAPI/v1/`**
 
-`GET` **/usuarios/{idUsuario}/productos**  
-`GET` **/usuarios/{idUsuario}/productos/{idProducto}**
+`GET` **/tiendas/{idTienda}/productos/{[idProductos]*}/**  
+`GET` **/tiendas/{idTienda}/productos/**  
 
 ### EnviosAPI
 Administración del envío de las ordenes de compra al cliente.
@@ -132,18 +125,27 @@ Date: Fri, 22 Nov 2013 16:37:57 GMT
 Transfer-Encoding: Identity
 
 {
-  datos:{
-    idTienda:1
-    , nombreTienda:"TiendaPrueba"
-    , categorias:{
-      datos:[...]
-    }
+  meta:{
+    id:"ASDF-123456789-QWER"
+    , code:"ERR-01234"
+    , status:404
+    , type:"OAuthException"
+    , message:"Failed for Authentication"
+    , detail:"Session has expired at unix time 1234567890."
+    , errors:[
+      //Aqui los errores especificos.
+    ]
   }
-  , error:{
-    tipo:"..."
-    , mensaje:"..."
-    , codigo:"..."
-    , href:"..."
+  , response:{
+    nombre:"tienda"
+    , categorias:{
+      data:[
+        //Aqui la informacion...
+      ]
+      , meta:{
+        
+      }
+    }
   }
 }
 ~~~

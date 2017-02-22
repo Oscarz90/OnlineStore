@@ -23,6 +23,13 @@ tiendaDB.prototype.findAll = tiendas=>{
 
       resolve(tiendas);
     })
+    /*usuarios.find()
+    .exec()
+      .then(result=>{
+        console.log("Si traje todo chingon")
+        resolve(result)
+      })
+      .catch(error=>reject("No se inserto correctamente el usuario"));*/
   })
 };
 
