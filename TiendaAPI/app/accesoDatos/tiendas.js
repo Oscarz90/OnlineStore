@@ -18,18 +18,16 @@ tiendaDB.prototype.save = tiendas=>{
 
 tiendaDB.prototype.findAll = tiendas=>{
   return new Promise((resolve, reject)=>{
-    tiendas.find(function(error, tiendas){
-      if(error) throw error;
-
-      resolve(tiendas);
+    tiendas.find().exec()
+    .then(result=>{
+      throw new Error("No pude obtener los datos");
+      //resolve(result)
+      //reject("no salio")
     })
-    /*usuarios.find()
-    .exec()
-      .then(result=>{
-        console.log("Si traje todo chingon")
-        resolve(result)
-      })
-      .catch(error=>reject("No se inserto correctamente el usuario"));*/
+    .catch(error=>{
+      //throw error
+      reject(error)
+    });
   })
 };
 

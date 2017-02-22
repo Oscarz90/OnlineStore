@@ -3,7 +3,7 @@ var tiendasControlador = require('../controladores/tiendas');
 var rutasTiendas = function(router){
   'use strict';
   const baseURI = 'tiendas';
-
+  
   router.route('/')
     .get(
       [
@@ -14,6 +14,7 @@ var rutasTiendas = function(router){
         , tiendasControlador.findAll
         ,(req,resp)=>{
           console.log("Armar Respuesta Estandar"); 
+          resp.status(200).jsonp("hola")
         }
       ])
     .post(tiendasControlador.save);

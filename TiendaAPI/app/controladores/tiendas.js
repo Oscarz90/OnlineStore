@@ -12,10 +12,14 @@ TiendasControlador.prototype.findAll = (peticion,respuesta,next)=>{
   .then(result=>{
     peticion.resultado=result
     //respuesta.status(200).jsonp(result)
-    console.log(next)
     next()
   })
-  .catch(error=> respuesta.status(200).send("Ocurrio un error"));
+  .catch(error=> {
+    //respuesta.status(200).send("Ocurrio un error")
+    console.log(error)
+    console.log("Ocurrio un ERROR!!!")
+    next('route');
+  });
 
 };
 
