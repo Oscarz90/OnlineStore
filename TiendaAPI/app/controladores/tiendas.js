@@ -10,7 +10,8 @@ function TiendasControlador(){
 TiendasControlador.prototype.findAll = (peticion,respuesta,next)=>{
   TiendasDB.findAll(Tiendas)
   .then(result=>{
-    respuesta.status(200).jsonp(result)
+    peticion.resultado=result
+    //respuesta.status(200).jsonp(result)
     console.log(next)
     next()
   })
