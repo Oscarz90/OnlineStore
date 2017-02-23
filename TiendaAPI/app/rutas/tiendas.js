@@ -1,22 +1,15 @@
 var tiendasControlador = require('../controladores/tiendas');
+var ResponseParser = require('../middleware/response-parser')
 
 var rutasTiendas = function(router){
   'use strict';
   const baseURI = 'tiendas';
   
   router.route('/')
-    .get(
-      [
-        (req,resp, next)=>{
-          console.log("Validador Datos"); 
-          next();
-        }
-        , tiendasControlador.findAll
-        ,(req,resp)=>{
-          console.log("Armar Respuesta Estandar"); 
-          resp.status(200).jsonp("hola")
-        }
-      ])
+    .get([
+      tiendasControlador.findAll
+      , ResponseParser
+    ])
     .post(tiendasControlador.save);
 
   router.route('/:idTienda')

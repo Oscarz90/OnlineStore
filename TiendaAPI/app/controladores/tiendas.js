@@ -1,7 +1,9 @@
-//require('../colecciones/tiendas');
+"use strict";
+
 var mongoose = require('mongoose');
 var Tiendas = require('../colecciones/tiendas')
 var TiendasDB = require('../accesoDatos/tiendas')
+var Meta = require('../entidades/meta');
 
 function TiendasControlador(){
 
@@ -9,18 +11,15 @@ function TiendasControlador(){
 
 TiendasControlador.prototype.findAll = (peticion,respuesta,next)=>{
   TiendasDB.findAll(Tiendas)
-  .then(result=>{
-    peticion.resultado=result
-    //respuesta.status(200).jsonp(result)
-    next()
+  .then(resultado=>{
+    respuesta.locals.data=resultado;
+    respuesta.locals.meta=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+    console.log(respuesta.locals)
+    next();
   })
   .catch(error=> {
-    //respuesta.status(200).send("Ocurrio un error")
-    console.log(error)
-    console.log("Ocurrio un ERROR!!!")
-    next('route');
+    next();
   });
-
 };
 
 TiendasControlador.prototype.findOne = (peticion,respuesta)=>{
