@@ -1,4 +1,4 @@
-var tiendasControlador = require('../controladores/tiendas');
+var TiendasControlador = require('../controladores/tiendas');
 var ResponseParser = require('../middleware/response-parser')
 
 var rutasTiendas = function(router){
@@ -7,13 +7,15 @@ var rutasTiendas = function(router){
   
   router.route('/')
     .get([
-      tiendasControlador.findAll
+      TiendasControlador.find
       , ResponseParser
     ])
-    .post(tiendasControlador.save);
+    .post(TiendasControlador.insert);
 
   router.route('/:idTienda')
-    .get(tiendasControlador.findOne);
+    .get([
+      TiendasControlador.findOne
+      , ResponseParser]);
 
   return baseURI;
 };

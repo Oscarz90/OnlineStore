@@ -11,7 +11,7 @@ var servidor = function(callback){
   'use strict';
   //Inicializa aplicacion
   app = express();
-
+  
   //Middleware para parser peticiones json
   app.use(bodyParser.json({type: '*/*'}));
 

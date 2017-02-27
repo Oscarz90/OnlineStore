@@ -4,8 +4,7 @@ var async = require('async');
 
 
 //Inicializar modulos
-async.series(
-  [
+async.series([
     function iniciarBaseDatos(callback){
       baseDatos(callback);
     }
