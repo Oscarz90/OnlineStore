@@ -1,18 +1,16 @@
+"use strict";
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-module.exports = function(callback){
-  'use strict';
-
-  mongoose.connect('mongodb://localhost/TiendaDB', function(error, result) {
-    if(error) throw error;
-    console.log('Conectado a la base de datos!!!!');
-  });
-
+module.exports = callback=>{
   mongoose.Promise = Promise;
-
-  //Retornamos el callback para async
-  if(callback){
-    return callback(null,"Se ejecuto correctamente el modulo ./app/configuracion/servidor")
-  };
-}
+  mongoose.connect('mongodb://localhost/TiendaDB', (error, result)=> {
+    if(error){
+      console.info("!Ocurrio un error al conectar y configurar la base de datos!");
+      return callback(error,"Ocurrio un error al conectar y configurar la base de datos.");
+    }else{
+      console.info("¡Conexion y configuracion correctamente de base de datos!");
+      return callback(null,"Conexion y configuracion correctamente de base de datos");
+    }
+  });
+};
