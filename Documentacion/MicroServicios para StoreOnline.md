@@ -136,15 +136,11 @@ Transfer-Encoding: Identity
       //Aqui los errores especificos.
     ]
   }
-  , data:{
-    nombre:"tienda"
-    , categorias:{
+  , results:{
+    tiendas:{
       data:[
         //Aqui la informacion...
       ]
-      , meta:{
-
-      }
     }
   }
 }

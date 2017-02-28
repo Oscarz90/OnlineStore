@@ -1,9 +1,9 @@
 'use strict';
 
 class Respuesta{
-  constructor(meta, data){
-    this.meta=meta;
-    this.data=data;
+  constructor(metadata, results){
+    this.metadata=metadata;
+    this.results=results;
   }
 }
 

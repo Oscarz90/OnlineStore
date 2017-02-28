@@ -6,22 +6,18 @@ module.exports = function(app) {
   'use strict';
   
   // Initialize all rutas
-  Object.keys(rutas).forEach(function(nombreRutas) {
+  Object.keys(rutas).map(nombreRutas=>{
     //Crear el conjunto de rutas
-    var router = express.Router({mergeParams: true});
+    let router = express.Router({mergeParams: true});
 
     //Aqui podemos añadir algun middleware
     //router.use(algunMiddleware)
-    //Inicializa la ruta para agregarl su funcionalidad al router
-    //var BASEURI=require('./' + nombreRutas)(router);
     
     //Agrega el router a la ruta especifica en la aplicacion
     //app.use('/' + changeCase.camelCase(BASEURI), router);
 
     //Inicializa la ruta para agregarl su funcionalidad al router
-    var uriBase = require('./' + nombreRutas)(router);
-    console.info(uriBase)
-    console.info(`/${uriBase}`)
+    let uriBase = require('./' + nombreRutas)(router);
     //Agrega el router a la ruta especifica en la aplicacion
     app.use(`/${uriBase}`, router);
     //app.use('/' + changeCase.camelCase(nombreRutas), router);

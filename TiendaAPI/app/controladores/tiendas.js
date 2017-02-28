@@ -8,8 +8,8 @@ function TiendasControlador(){};
 TiendasControlador.prototype.find = (peticion,respuesta,next)=>{
   TiendasDB.find()
   .then(resultado=>{
-    respuesta.locals.data=resultado;
-    respuesta.locals.meta=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+    respuesta.locals.results = {tiendas:resultado};
+    respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
     next();
   })
   .catch(error=> {
@@ -20,8 +20,8 @@ TiendasControlador.prototype.find = (peticion,respuesta,next)=>{
 TiendasControlador.prototype.findById = (peticion,respuesta,next)=>{
   TiendasDB.findById(peticion.params.idTienda)
   .then(resultado=>{
-    respuesta.locals.data=resultado;
-    respuesta.locals.meta=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+    respuesta.locals.results={tiendas:resultado};
+    respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
     next();
   })
   .catch(error=> {

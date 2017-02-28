@@ -1,31 +1,16 @@
 "use strict";
 var Respuesta = require('../entidades/respuesta');
 
-function responseParser(req,resp,next){
-  var resultado = new Respuesta(resp.locals.meta,resp.locals.data);
-  resp.status(resultado.meta.status).jsonp(resultado);
+let namespace="data";
+const formatearResultados = (resultados)=>Object.keys(resultados).map(atributo=>Array.isArray(resultados[atributo])?(resultados[atributo]={[namespace]:resultados[atributo], lenght:resultados[atributo].length}):resultados[atributo]);
+
+function responseParser(req,resp){
+  formatearResultados(resp.locals.results);
+  const resultado = new Respuesta(resp.locals.metadata,resp.locals.results);
+  resp.status(resultado.metadata.status).jsonp(resultado);
 };
+
+
 
 module.exports = responseParser;
 
-
-
-
-var namespace = "datos";
-
-var Objeto = {
-	Nombre : 'ParametroA',
-	Descripcion : "ParametroB",
-	Imagenes : ["a.jpg","b.jpg","c.jpg","d.jpg"],
-	Stock : 1,
-	Categorias : [1,2,3,4,5],
-	It : 1,
-	Ites : ['a','b','c']
-}
-
-var transformarObjeto = (Objeto) => Object.keys(Objeto).map( x => Array.isArray(Objeto[x]) ? (Objeto[x] = { [namespace] : Objeto[x] } ): null);
-
-
-transformarObjeto(Objeto)
-
-console.log(Objeto)

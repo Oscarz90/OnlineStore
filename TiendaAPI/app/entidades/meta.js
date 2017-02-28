@@ -1,7 +1,7 @@
 'use strict';
 
 class Meta{
-  constructor(id , code , status , type , message , detail , errors ){
+  constructor(id , code , status , type , message , detail , errors){
     this.id = id;
     this.code = code;
     this.status = status;
@@ -10,6 +10,8 @@ class Meta{
     this.detail = detail;
     this.errors = errors;
   }
+
+  
 }
 
 module.exports = Meta;
