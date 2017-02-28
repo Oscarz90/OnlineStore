@@ -1,11 +1,12 @@
 "use strict";
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ProductosSchema = require('./productos').schema;
 
 //Enumerados
 var estadoEnumerado = ['activo', 'inactivo', 'bloqueado'];
 
-var categoriasSchema = new Schema({ 
+var CategoriasSchema = new Schema({ 
   nombre          : {type : String , required : true}
   , estado        : {type : String , enum : estadoEnumerado , default : 'activo'}
   , fechaCreacion : {type : Date , default : Date.now } 
@@ -14,6 +15,6 @@ var categoriasSchema = new Schema({
 
 //module.exports = mongoose.model('categorias', tiendasSchema);
 module.exports ={
-  model    : mongoose.model('categorias', categoriasSchema)
-  , schema : categoriasSchema
+  model    : mongoose.model('categorias', CategoriasSchema)
+  , schema : CategoriasSchema
 };

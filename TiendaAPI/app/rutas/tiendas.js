@@ -14,7 +14,7 @@ var rutasTiendas = function(router){
 
   router.route('/:idTienda')
     .get([
-      TiendasControlador.findOne
+      TiendasControlador.findById
       , ResponseParser]);
 
   return baseURI;

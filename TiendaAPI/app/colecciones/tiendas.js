@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var categoriasSchema = require('./categorias').schema;
+var CategoriasSchema = require('./categorias').schema;
 //Enumerados
 var estadoEnumerado = ['activo', 'inactivo', 'bloqueado'];
 
-var tiendasSchema = new Schema({ 
+var TiendasSchema = new Schema({ 
   nombre          : { 
     type : String}
-  , categorias    : [categoriasSchema]
+  , categorias    : [CategoriasSchema]
   , estado        : {
     type : String
     , enum : estadoEnumerado
@@ -18,6 +18,6 @@ var tiendasSchema = new Schema({
 });
 
 module.exports = {
-  model    : mongoose.model('tiendas', tiendasSchema)
-  , schema : tiendasSchema
+  model    : mongoose.model('tiendas', TiendasSchema)
+  , schema : TiendasSchema
 };

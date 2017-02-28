@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-
+var TiendasModelo = require('../colecciones/tiendas').model;
 function TiendaDB(){};
 
-TiendaDB.prototype.find = tiendas=>{
+TiendaDB.prototype.find =()=>{
   return new Promise((resolve, reject)=>{
-    tiendas.find().exec()
+    TiendasModelo.find().exec()
     .then(resultado=>{
       resolve(resultado)
     })
@@ -14,21 +14,33 @@ TiendaDB.prototype.find = tiendas=>{
   })
 };
 
-TiendaDB.prototype.findOne = tiendas=>{
+TiendaDB.prototype.findById =(id)=>{
+  return new Promise((resolve, reject)=>{
+    TiendasModelo.findOne({_id:id}).exec()
+    .then(resultado=>{
+      resolve(resultado)
+    })
+    .catch(error=>{
+      reject(error)
+    });
+  })
+};
+
+TiendaDB.prototype.findOne = ()=>{
   return new Promise((resolve, reject)=>{
     resolve("Se ejecuto correctamente");
   });
 };
 
-TiendaDB.prototype.insert = tiendas=>{
+TiendaDB.prototype.insert = ()=>{
   return new Promise((resolve, reject)=>{
     resolve("Se ejecuto correctamente");
   });
 };
 
-TiendaDB.prototype.insertOne = tiendas=>{
+TiendaDB.prototype.insertOne = (tienda)=>{
   return new Promise((resolve, reject)=>{
-    tiendas.save()
+    tienda.save()
       .then((result)=>{
         resolve(result);
       })
