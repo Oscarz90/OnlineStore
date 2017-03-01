@@ -1,8 +1,9 @@
+"use strict";
 var mongoose = require('mongoose');
 var CategoriasModelo = require('../colecciones/categorias').model
 function CategoriasDB(){};
 
-CategoriasDB.prototype.find = ()=>{
+CategoriasDB.prototype.find =()=>{
   return new Promise((resolve, reject)=>{
     resolve("Se ejecuto correctamente");
   })

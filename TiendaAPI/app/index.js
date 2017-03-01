@@ -6,8 +6,8 @@ var async = require('async');
 
 //Inicializar modulos
 async.series([
-  basedatos
-  , ambiente
+  ambiente
+  , basedatos
   , servidor ]
-  , error => console.info(error?"¡RESTFUL Api No Iniciada Correctamente!":"¡RESTFUL Api Iniciada Correctamente!")
+  , (error,resultado) => console.info(error?"¡RESTFUL Api No Iniciada Correctamente!":"¡RESTFUL Api Iniciada Correctamente!")
 );

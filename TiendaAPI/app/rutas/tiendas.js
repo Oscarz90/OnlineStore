@@ -1,7 +1,7 @@
 var TiendasControlador = require('../controladores/tiendas');
 var ResponseParser = require('../middleware/response-parser')
 
-var rutasTiendas = function(router){
+module.exports = router=>{
   'use strict';
   const baseURI = 'tiendas';
   
@@ -19,6 +19,3 @@ var rutasTiendas = function(router){
 
   return baseURI;
 };
-
-//Exportacion del modulo como funcion
-module.exports = rutasTiendas;

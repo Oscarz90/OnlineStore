@@ -2,41 +2,33 @@ var mongoose = require('mongoose');
 var TiendasModelo = require('../colecciones/tiendas').model;
 function TiendaDB(){};
 
-TiendaDB.prototype.find =()=>{
-  return new Promise((resolve, reject)=>{
-    TiendasModelo.find().exec()
-    .then(resultado=>{
-      resolve(resultado)
-    })
-    .catch(error=>{
-      reject(error)
-    });
+TiendaDB.prototype.find =()=>new Promise((resolve, reject)=>{
+  TiendasModelo.find().exec()
+  .then(resultado=>{
+    resolve(resultado)
   })
-};
+  .catch(error=>{
+    reject(error)
+  });
+});
 
-TiendaDB.prototype.findById =(id)=>{
-  return new Promise((resolve, reject)=>{
-    TiendasModelo.findOne({_id:id}).exec()
-    .then(resultado=>{
-      resolve(resultado)
-    })
-    .catch(error=>{
-      reject(error)
-    });
+TiendaDB.prototype.findById =(id)=>new Promise((resolve, reject)=>{
+  TiendasModelo.findOne({_id:id}).exec()
+  .then(resultado=>{
+    resolve(resultado)
   })
-};
-
-TiendaDB.prototype.findOne = ()=>{
-  return new Promise((resolve, reject)=>{
-    resolve("Se ejecuto correctamente");
+  .catch(error=>{
+    reject(error)
   });
-};
+});
 
-TiendaDB.prototype.insert = ()=>{
-  return new Promise((resolve, reject)=>{
-    resolve("Se ejecuto correctamente");
-  });
-};
+TiendaDB.prototype.findOne=()=>new Promise((resolve, reject)=>{
+  resolve("Se ejecuto correctamente");
+});
+
+TiendaDB.prototype.insert=()=>new Promise((resolve, reject)=>{
+  resolve("Se ejecuto correctamente");
+});
 
 TiendaDB.prototype.insertOne = (tienda)=>{
   return new Promise((resolve, reject)=>{
