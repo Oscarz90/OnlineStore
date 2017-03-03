@@ -23,18 +23,72 @@ Administración de la tienda en linea online.
 
 Base: **`/TiendaAPI/v1/`**
 
+>Tienda
+
 `GET` **/tiendas/{idTienda}**  
+`POST` **/tiendas/**
+`PUT` **/tiendas/{idTienda}**  
+`PATCH` **/tiendas/{idTienda}**  
+
+>Secciones
+
+`GET` **/tiendas/{idTienda}/secciones**  
+`POST` **/tiendas/{idTienda}/secciones**  
+`PUT` **/tiendas/{idTienda}/secciones/{idSeccion}**  
+`PATCH` **/tiendas/{idTienda}/secciones/{idSeccion}**  
+
+>Categorias
+
 `GET` **/tiendas/{idTienda}/categorias**  
+`POST` **/tiendas/{idTienda}/categorias**  
+`PUT` **/tiendas/{idTienda}/categorias/{idCategorias}**  
+`PATCH` **/tiendas/{idTienda}/categorias/{idCategorias}**  
+
+
+>Etiquetas
+
+`GET` **/tiendas/{idTienda}/etiquetas**  
+`POST` **/tiendas/{idTienda}/etiquetas**  
+`PUT` **/tiendas/{idTienda}/etiquetas/{idEtiqueta}**  
+`PATCH` **/tiendas/{idTienda}/etiquetas/{idEtiqueta}**  
+
+>Productos
+
+`GET` **/tiendas/{idTienda}/secciones/{idSeccion}/productos/**    
+`POST` **/tiendas/{idTienda}/secciones/{idSeccion}/productos/**  
+`PUT` **/tiendas/{idTienda}/secciones/{idSeccion}/productos/{idProducto}**  
+`PATCH` **/tiendas/{idTienda}/secciones/{idSeccion}/productos/{idProducto}**  
 
 ### UsuariosAPI  
 Administración de los usuarios de la tienda (comprador y vendedor).
 
-Base: **`/ClientesAPI/v1/`**
+Base: **`/UsuariosAPI/v1/`**
+
+>Usuarios
 
 `GET` **/usuarios/{idUsuario}**  
-`POST` **/usuarios/{idUsuario}/login**  
+`POST` **/usuarios/**  
+`PUT` **/usuarios/{idUsuario}**  
+`PATCH` **/usuarios/{idUsuario}**  
+
+>Carrito Compras
+
 `GET` **/usuarios/{idUsuario}/carritoCompras**  
-`GET` **/usuarios/{idUsuario}/listaDeseos**  
+`POST` **/usuarios/{idUsuario}/carritoCompras**  
+`PUT` **/usuarios/{idUsuario}/carritoCompras**  
+`PATCH` **/usuarios/{idUsuario}/carritoCompras**  
+
+>Lista de Deseos
+
+`GET` **/usuarios/{idUsuario}/listaDeseos/**  
+`GET` **/usuarios/{idUsuario}/listaDeseos/{idListaDeseo}**  
+`POST` **/usuarios/{idUsuario}/listaDeseos/**  
+`PUT` **/usuarios/{idUsuario}/listaDeseos/{idListaDeseo}**  
+`PATCH` **/usuarios/{idUsuario}/listaDeseos/{idListaDeseo}**  
+
+>Login
+
+`POST` **/usuarios/{idUsuario}/login**  
 
 ### OrdenesAPI  
 Administración de las ordenes de compra del cliente.
@@ -42,10 +96,13 @@ Administración de las ordenes de compra del cliente.
 Base: **`/OrdenesAPI/v1/`**
 
 `GET` **/usuarios/{idUsuario}/ordenes**  
+`POST` **/usuarios/{idUsuario}/ordenes**  
 `GET` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
-`GET` **/usuarios/{idUsuario}/ordenes/{idOrden}/productos/**  
+`PUT` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
+`PATCH` **/usuarios/{idUsuario}/ordenes/{idOrden}**  
 
-### PagosAPI  
+
+### PagosAPI  `Investigar Pago de PayPal`
 Administración del pago de las ordenes de compra.
 
 Base: **`/PagosAPI/v1/`**
@@ -58,11 +115,19 @@ Administración del almacen y stock de los productos para la tienda.
 
 Base: **`/InventarioAPI/v1/`**
 
-`GET` **/tiendas/{idTienda}/productos/{[idProductos]*}/**  
 `GET` **/tiendas/{idTienda}/productos/**  
+`GET` **/tiendas/{idTienda}/productos/{idProductos}/**  
+`POST` **/tiendas/{idTienda}/productos/**  
+`PUT` **/tiendas/{idTienda}/productos/{idProducto}**  
+`PATCH` **/tiendas/{idTienda}/productos/{idProducto}**  
 
 ### EnviosAPI
 Administración del envío de las ordenes de compra al cliente.
+
+`GET` **/usuarios/{idUsuario}/ordenes/envios**  
+`POST` **/usuarios/{idUsuario}/ordenes/envios**  
+`PUT` **/usuarios/{idUsuario}/ordenes/envios**  
+`PATCH` **/usuarios/{idUsuario}/ordenes/envios**  
 
 Verbos HTTP
 ---
