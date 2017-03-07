@@ -52,11 +52,10 @@ TiendasControlador.prototype.insert = (peticion,respuesta,next)=>{
 TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
   var tienda = new TiendasModelo({
     nombre : peticion.body.nombre
-    , categorias : peticion.body.categorias
   });
+  console.log(peticion.body.nombre)
 
-  
-  TiendasDB.insert(tienda)
+  TiendasDB.insertOne(tienda)
     .then(result=> respuesta.status(200).send("Inserte"))
     .catch(error=> respuesta.status(200).send("Ocurrio un error"));
 
