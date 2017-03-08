@@ -15,6 +15,10 @@ module.exports = router=>{
   router.route('/:idTienda')
     .get([
       TiendasControlador.findById
+      , ResponseParser])
+    .put([TiendasControlador.updateOne
+      , ResponseParser])
+    .patch([TiendasControlador.updatePatch
       , ResponseParser]);
 
   return baseURI;
