@@ -5,7 +5,6 @@ var Meta = require('../entidades/meta');
 
 function TiendasControlador(){};
 
-
 TiendasControlador.prototype.findOne = (peticion,respuesta,next)=>{
   TiendasDB.findOne(peticion.params.idTienda)
   .then(resultado=>{
@@ -18,7 +17,6 @@ TiendasControlador.prototype.findOne = (peticion,respuesta,next)=>{
 };
 
 TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
-  console.log("entre aqui")
   //Generar entidad a guardar
   var tienda = new TiendasModelo({
     nombre : peticion.body.nombre
