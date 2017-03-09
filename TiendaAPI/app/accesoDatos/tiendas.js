@@ -10,8 +10,12 @@ function TiendaDB(){};
  */
 TiendaDB.prototype.findOne=(idTienda)=>new Promise((resolve, reject) => {
   TiendasModelo.findOne({_id:idTienda}).exec().then(resultado=>{
+    
+    console.log(resultado)
     resolve(resultado)
   }).catch(error=>{
+
+    console.log(error)
     reject(error)
   });
 });
@@ -33,7 +37,13 @@ TiendaDB.prototype.insertOne=(tienda)=>new Promise((resolve, reject) =>{
  * @return {[type]}     [description]
  */
 TiendaDB.prototype.updateOne=(idTienda, tienda)=>new Promise((resolve, reject) =>{
-  TiendaModelo.updateOne().exec().then(resultado=>resolve(resultado)).catch(error=>reject(error));
+  TiendasModelo.findOneAndUpdate({ _id: idTienda }, tienda,{new:true})
+  .then(resultado=>{
+    resolve(resultado)
+  })
+  .catch(error=>{
+    reject(error);
+  });
 });
 
 

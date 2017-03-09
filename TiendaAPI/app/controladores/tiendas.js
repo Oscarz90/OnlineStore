@@ -17,7 +17,6 @@ TiendasControlador.prototype.findOne = (peticion,respuesta,next)=>{
   .then(resultado=>{
     respuesta.locals.results={tiendas:resultado};
     respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
-    console.log(respuesta)
     next();
   })
   .catch(error=>next());
@@ -59,9 +58,17 @@ TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
  * @return {[type]}             [description]
  */
 TiendasControlador.prototype.updateOne =(peticion,respuesta,next)=>{
-  TiendasDB.updateOne(peticion.body.params.idTienda, peticion.body)
-    .then(result=> respuesta.status(200).send("Actualice"))
-    .catch(error=> respuesta.status(200).send("Ocurrio un error"));
+  TiendasDB.updateOne(peticion.params.idTienda, peticion.body)
+    .then(result=> {
+      respuesta.locals.results=resultado;
+      respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+      next()
+    })
+    .catch(error=> {
+      respuesta.locals.results=error;
+      respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+      next()
+    });
 };
 
 module.exports = new TiendasControlador();
