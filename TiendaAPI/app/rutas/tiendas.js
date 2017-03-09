@@ -4,18 +4,28 @@ var ResponseParser = require('../middleware/response-parser')
 module.exports = router=>{
   'use strict';
   const baseURI = 'tiendas';
-  
-  router.route('/')
-    .get([
-      TiendasControlador.find
-      , ResponseParser
-    ])
-    .post(TiendasControlador.insertOne);
 
+  /**
+   * .../tiendas/
+   */
+  router.route('/')
+    .post([
+      TiendasControlador.insertOne
+      , ResponseParser
+    ]);
+
+  /**
+   * .../tiendas/:idTienda
+   */
   router.route('/:idTienda')
     .get([
-      TiendasControlador.findById
-      , ResponseParser]);
+      TiendasControlador.findOne
+      , ResponseParser
+    ])
+    .put([
+      TiendasControlador.updateOne
+      , ResponseParser
+    ]);
 
   return baseURI;
 };

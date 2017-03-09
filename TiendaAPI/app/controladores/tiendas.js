@@ -5,61 +5,45 @@ var Meta = require('../entidades/meta');
 
 function TiendasControlador(){};
 
-TiendasControlador.prototype.find = (peticion,respuesta,next)=>{
-  TiendasDB.find()
-  .then(resultado=>{
-    respuesta.locals.results = {tiendas:resultado};
-    respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
-    next();
-  })
-  .catch(error=> {
-    next();
-  });
-};
 
-TiendasControlador.prototype.findById = (peticion,respuesta,next)=>{
-  TiendasDB.findById(peticion.params.idTienda)
+TiendasControlador.prototype.findOne = (peticion,respuesta,next)=>{
+  TiendasDB.findOne(peticion.params.idTienda)
   .then(resultado=>{
     respuesta.locals.results={tiendas:resultado};
     respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+    console.log(respuesta)
     next();
   })
-  .catch(error=> {
-    next();
-  });
-};
-
-TiendasControlador.prototype.findOne = (peticion,respuesta,next)=>{
-  TiendasDB.find()
-  .then(resultado=>{
-    next();
-  })
-  .catch(error=> {
-    next();
-  });
-};
-
-TiendasControlador.prototype.insert = (peticion,respuesta,next)=>{
-  TiendasDB.find()
-  .then(resultado=>{
-    next();
-  })
-  .catch(error=> {
-    next();
-  });
+  .catch(error=>next());
 };
 
 TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
+  console.log("entre aqui")
+  //Generar entidad a guardar
   var tienda = new TiendasModelo({
     nombre : peticion.body.nombre
+    , numero:peticion.body.numero
   });
-  console.log(peticion.body.nombre)
 
   TiendasDB.insertOne(tienda)
-    .then(result=> respuesta.status(200).send("Inserte"))
-    .catch(error=> respuesta.status(200).send("Ocurrio un error"));
-
+    .then(resultado=> {
+      respuesta.locals.results=resultado;
+      respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+      next()
+    })
+    .catch(error=> {
+      console.log(typeof error)
+      respuesta.locals.results=error;
+      respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+      next()
+    });
 };
+
+TiendasControlador.prototype.updateOne =(peticion,respuesta,next)=>{
+  TiendasDB.updateOne(peticion.body.params.idTienda, peticion.body)
+    .then(result=> respuesta.status(200).send("Actualice"))
+    .catch(error=> respuesta.status(200).send("Ocurrio un error"));
+}
 
 module.exports = new TiendasControlador();
 

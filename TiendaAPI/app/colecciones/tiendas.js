@@ -4,12 +4,13 @@ var Schema = mongoose.Schema;
 var CategoriasSchema = require('./categorias').schema;
 var SeccionesSchema = require('./secciones').schema;
 var EtiquetasSchema = require('./etiquetas').schema;
+
 //Enumerados
-var estadoEnumerado = ['activo', 'inactivo', 'bloqueado'];
+var estadoEnumerado      = ['activo', 'inactivo', 'bloqueado'];
 var visibilidadEnumerado = ['publico','privado'];
 
 var TiendasSchema = new Schema({
-  nombre        : {type : String, required:true}
+  nombre        : {type : String, index:true, unique: true, required:true, trim:true}
   , estatus     : {type : String, enum:estadoEnumerado, default:'activo'}
   , visibilidad : {type : String, enum:visibilidadEnumerado, default:'publico'}
   , secciones   : [SeccionesSchema]

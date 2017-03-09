@@ -22,32 +22,12 @@ Está coleccion servira para las diferentes tiendas. A continuación se describe
 			nombre:"Oleo Sobre Tela"
 			, estatus:"'Activa|Suspendida|Congelada|Inactiva'"
 			, visibilidad:'Publico|Privado'
-			, productos:[
-					sku:"ASDF987ASFD987"
-					, ...
-			]
+			, productos:[{idProducto}]
 		}
 		, ...
 	]
-	, categorias:[
-		{
-			nombre:"juguetes"
-		}
-		, {
-			nombre:"ropa"
-		}
-	]
-	, etiquetas:[
-		{
-			nombre:"GameOfThrones"
-		}
-		, {
-			nombre:"Pop"
-		}
-		, {
-			nombre:"Lego"
-		}
-	]
+	, categorias:[{idCategorias}]
+	, etiquetas:[{idEtiqueta}]
 }
 ~~~
 

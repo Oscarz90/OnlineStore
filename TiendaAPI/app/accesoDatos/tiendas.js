@@ -3,43 +3,44 @@ var TiendasModelo = require('../colecciones/tiendas').model;
 
 function TiendaDB(){};
 
-TiendaDB.prototype.find =()=>new Promise((resolve, reject)=>{
-  TiendasModelo.find().exec()
-  .then(resultado=>{
+/**
+ * [Busca una tienda]
+ * @param  {Promise} )> [description]
+ * @return {[Promise]}     [description]
+ */
+TiendaDB.prototype.findOne=(idTienda)=>new Promise((resolve, reject) => {
+  
+  TiendasModelo.findOne({_id:idTienda}).exec().then(resultado=>{
     resolve(resultado)
-  })
-  .catch(error=>{
+  }).catch(error=>{
     reject(error)
   });
+
 });
 
-TiendaDB.prototype.findById =(id)=>new Promise((resolve, reject)=>{
-  TiendasModelo.findOne({_id:id}).exec()
-  .then(resultado=>{
-    resolve(resultado)
-  })
-  .catch(error=>{
-    reject(error)
-  });
-});
-
-TiendaDB.prototype.findOne=()=>new Promise((resolve, reject)=>{
-  resolve("Se ejecuto correctamente");
-});
-
-TiendaDB.prototype.insert=()=>new Promise((resolve, reject)=>{
-  resolve("Se ejecuto correctamente");
-});
-
-TiendaDB.prototype.insertOne = (tienda)=>new Promise((resolve, reject)=>{
+/**
+ * [Inserta una tienda]
+ * @param  {Promise} )> [description]
+ * @return {[type]}     [description]
+ */
+TiendaDB.prototype.insertOne=(tienda)=>new Promise((resolve, reject) =>{
   tienda.save()
-    .then((result)=>{
-      resolve(result);
-    })
-    .catch((error)=>{
-      reject(error);
-    })
+  .then(resultado=>{resolve(resultado)})
+  .catch(error=>reject(error));
 });
+
+/**
+ * [Actualiza una tienda]
+ * @param  {Promise} )> [description]
+ * @return {[type]}     [description]
+ */
+TiendaDB.prototype.updateOne=(idTienda, tienda)=>new Promise((resolve, reject) =>{
+  TiendaModelo.updateOne().exec().then(resultado=>resolve(resultado)).catch(error=>reject(error));
+});
+
+
+
+
 
 
 module.exports = new TiendaDB();
