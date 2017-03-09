@@ -2,7 +2,7 @@
 var Respuesta = require('../entidades/respuesta');
 
 let namespace="data";
-const formatearResultados = (resultados)=>Object.keys(resultados).map(atributo=>Array.isArray(resultados[atributo])?(resultados[atributo]={[namespace]:resultados[atributo],lenght:resultados[atributo].length}):typeof resultados[atributo] === 'object' && 'null' != resultados[atributo] ?  formatearResultados(resultados[atributo]):null );
+const formatearResultados = (resultados)=>Object.keys(resultados).map(atributo=>Array.isArray(resultados[atributo])?(resultados[atributo]={[namespace]:resultados[atributo],lenght:resultados[atributo].length}):typeof resultados[atributo] === 'object' &&  resultados[atributo] !== null ?  formatearResultados(resultados[atributo]):null );
 
 
 function responseParser(req,resp){
