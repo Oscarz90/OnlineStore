@@ -10,11 +10,15 @@ module.exports = router=>{
       TiendasControlador.find
       , ResponseParser
     ])
-    .post(TiendasControlador.insert);
+    .post(TiendasControlador.insertOne);
 
   router.route('/:idTienda')
     .get([
       TiendasControlador.findById
+      , ResponseParser])
+    .put([TiendasControlador.updateOne
+      , ResponseParser])
+    .patch([TiendasControlador.updatePatch
       , ResponseParser]);
 
   return baseURI;

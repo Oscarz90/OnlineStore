@@ -26,7 +26,7 @@ Base: **`/TiendaAPI/v1/`**
 >Tienda
 
 `GET` **/tiendas/{idTienda}**  
-`POST` **/tiendas/**
+`POST` **/tiendas/**  
 `PUT` **/tiendas/{idTienda}**  
 `PATCH` **/tiendas/{idTienda}**  
 

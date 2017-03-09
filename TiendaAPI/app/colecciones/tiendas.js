@@ -1,20 +1,20 @@
+"use strict";
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var CategoriasSchema = require('./categorias').schema;
+var SeccionesSchema = require('./secciones').schema;
+var EtiquetasSchema = require('./etiquetas').schema;
 //Enumerados
 var estadoEnumerado = ['activo', 'inactivo', 'bloqueado'];
+var visibilidadEnumerado = ['publico','privado'];
 
-var TiendasSchema = new Schema({ 
-  nombre          : { 
-    type : String}
-  , categorias    : [CategoriasSchema]
-  , estado        : {
-    type : String
-    , enum : estadoEnumerado
-    , default : 'activo'}
-  , fechaCreacion : { 
-    type : Date
-    , default : Date.now} 
+var TiendasSchema = new Schema({
+  nombre        : {type : String, required:true}
+  , estatus     : {type : String, enum:estadoEnumerado, default:'activo'}
+  , visibilidad : {type : String, enum:visibilidadEnumerado, default:'publico'}
+  , secciones   : [SeccionesSchema]
+  , categorias  : [CategoriasSchema]
+  , etiquetas   : [EtiquetasSchema]
 });
 
 module.exports = {

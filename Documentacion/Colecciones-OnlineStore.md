@@ -21,11 +21,11 @@ Está coleccion servira para las diferentes tiendas. A continuación se describe
 		{
 			nombre:"Oleo Sobre Tela"
 			, estatus:"'Activa|Suspendida|Congelada|Inactiva'"
+			, visibilidad:'Publico|Privado'
 			, productos:[
 					sku:"ASDF987ASFD987"
 					, ...
 			]
-			, visibilidad:'Publico|Privado'
 		}
 		, ...
 	]
