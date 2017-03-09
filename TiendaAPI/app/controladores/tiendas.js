@@ -59,9 +59,13 @@ TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
  */
 TiendasControlador.prototype.updateOne =(peticion,respuesta,next)=>{
   TiendasDB.updateOne(peticion.params.idTienda, peticion.body)
-    .then(result=> {
-      respuesta.locals.results=resultado;
-      respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
+    .then(resultado=> {
+      respuesta.locals.results=resultado?resultado:{};
+      if(resultado){
+        respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "Recurso actualizado correctamente." , "Recurso actualizado correctamente. " , "Recurso actualizado correctamente." , undefined );
+      }else{
+        respuesta.locals.metadata=new Meta("id" , "0000" , 404 , "Recurso no encontrado." , "Recurso no encontrado." , "Recurso no encontrado." , undefined);  
+      }
       next()
     })
     .catch(error=> {
