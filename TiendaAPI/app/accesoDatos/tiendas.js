@@ -9,13 +9,11 @@ function TiendaDB(){};
  * @return {[Promise]}     [description]
  */
 TiendaDB.prototype.findOne=(idTienda)=>new Promise((resolve, reject) => {
-  
   TiendasModelo.findOne({_id:idTienda}).exec().then(resultado=>{
     resolve(resultado)
   }).catch(error=>{
     reject(error)
   });
-
 });
 
 /**
@@ -38,29 +36,6 @@ TiendaDB.prototype.updateOne=(idTienda, tienda)=>new Promise((resolve, reject) =
   TiendaModelo.updateOne().exec().then(resultado=>resolve(resultado)).catch(error=>reject(error));
 });
 
-
-
-
-
-TiendaDB.prototype.updateOne = (tienda)=>new Promise((resolve, reject)=>{
-  tienda.update({_id  : ObjectId(tienda.idTienda)},  tienda)
-    .then((result)=>{
-      resolve(result);
-    })
-    .catch((error)=>{
-      reject(error);
-    })
-});
-
-TiendaDB.prototype.updatePatch = (tienda)=>new Promise((resolve, reject)=>{
-  tienda.update({_id  : ObjectId(tienda.idTienda)}, {$set: tienda})
-    .then((result)=>{
-      resolve(result);
-    })
-    .catch((error)=>{
-      reject(error);
-    })
-});
 
 
 module.exports = new TiendaDB();
