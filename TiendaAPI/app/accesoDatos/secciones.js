@@ -1,10 +1,16 @@
 var mongoose = require('mongoose');
-var TiendasModelo = require('../colecciones/secciones').model;
+var SeccionesModelo = require('../colecciones/secciones').model;
 
 function SeccionesBD(){};
 
+
+/**
+ * [Busca secciones]
+ * @param  {Promise} )> [description]
+ * @return {[Promise]}     [description]
+ */
 SeccionesBD.prototype.find =()=>new Promise((resolve, reject)=>{
-  TiendasModelo.find().exec()
+  SeccionesModelo.find().exec()
   .then(resultado=>{
     resolve(resultado)
   })
@@ -13,8 +19,14 @@ SeccionesBD.prototype.find =()=>new Promise((resolve, reject)=>{
   });
 });
 
-SeccionesBD.prototype.findById =(id)=>new Promise((resolve, reject)=>{
-  TiendasModelo.findOne({_id:id}).exec()
+
+/**
+ * [Busca una secciones]
+ * @param  {Promise} )> [description]
+ * @return {[Promise]}     [description]
+ */
+SeccionesBD.prototype.findOne =(idseccion)=>new Promise((resolve, reject)=>{
+  SeccionesModelo.findOne({_id:idseccion}).exec()
   .then(resultado=>{
     resolve(resultado)
   })
@@ -23,22 +35,35 @@ SeccionesBD.prototype.findById =(id)=>new Promise((resolve, reject)=>{
   });
 });
 
-SeccionesBD.prototype.findOne=()=>new Promise((resolve, reject)=>{
-  resolve("Se ejecuto correctamente");
-});
 
-SeccionesBD.prototype.insert=()=>new Promise((resolve, reject)=>{
-  resolve("Se ejecuto correctamente");
-});
-
-SeccionesBD.prototype.insertOne = (tienda)=>new Promise((resolve, reject)=>{
-  tienda.save()
+/**
+ * [Inserta una seccion]
+ * @param  {Promise} )> [description]
+ * @return {[type]}     [description]
+ */
+SeccionesBD.prototype.insertOne = (seccion)=>new Promise((resolve, reject)=>{
+  seccion.save()
     .then((result)=>{
       resolve(result);
     })
     .catch((error)=>{
       reject(error);
     })
+});
+
+/**
+ * [Actualiza una seccion]
+ * @param  {Promise} )> [description]
+ * @return {[type]}     [description]
+ */
+SeccionesBD.prototype.updateOne = (idSeccion, seccion) => new Promise((resolve,reject)=>{
+  SeccionesModelo.findOneAndUpdate({ _id : idSeccion} ,  seccion, {new:true})
+  .then(resultado=>{
+    resolve(resultado)
+  })
+  .catch(error=>{
+    reject(error);
+  });
 });
 
 

@@ -4,7 +4,7 @@ var rutas = require('require-dir')();
 
 module.exports = app=>{
   'use strict';
-  
+
   // Initialize all rutas
   Object.keys(rutas).map(nombreRutas=>{
     //Crear el conjunto de rutas
@@ -12,7 +12,7 @@ module.exports = app=>{
 
     //Aqui podemos añadir algun middleware
     //router.use(algunMiddleware)
-    
+
     //Agrega el router a la ruta especifica en la aplicacion
     //app.use('/' + changeCase.camelCase(BASEURI), router);
 
@@ -22,6 +22,5 @@ module.exports = app=>{
     //Agrega el router a la ruta especifica en la aplicacion
     app.use(`/${uriBase}`, router);
     //app.use('/' + changeCase.camelCase(nombreRutas), router);
-  }); 
+  });
 };
-

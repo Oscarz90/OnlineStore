@@ -9,5 +9,5 @@ async.series([
   ambiente
   , basedatos
   , servidor ]
-  , (error,resultado) => console.info(error?"¡RESTFUL Api No Iniciada Correctamente!":"¡RESTFUL Api Iniciada Correctamente!")
+  , (error,resultado) => console.info(error?error:"¡RESTFUL Api Iniciada Correctamente!")
 );

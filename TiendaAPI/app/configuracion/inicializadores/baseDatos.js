@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 
 module.exports = callback=>{
   mongoose.Promise = Promise;
-  mongoose.connect('mongodb://localhost/TiendaDB', (error, result)=> {
+  mongoose.connect('mongodb://localhost:27017/TiendaDB', (error, result)=> {
     if(error){
       console.info("!Ocurrio un error al conectar y configurar la base de datos!");
       return callback(error,"Ocurrio un error al conectar y configurar la base de datos.");
