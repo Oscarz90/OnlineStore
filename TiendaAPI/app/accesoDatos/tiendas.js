@@ -28,7 +28,10 @@ TiendaDB.prototype.findOne=(idTienda)=>new Promise((resolve, reject) => {
 TiendaDB.prototype.insertOne=(tienda)=>new Promise((resolve, reject) =>{
   tienda.save()
   .then(resultado=>{resolve(resultado)})
-  .catch(error=>reject(error));
+  .catch(error=>{
+    console.log(error)
+    reject(error)
+  });
 });
 
 /**

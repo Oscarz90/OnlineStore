@@ -1,5 +1,5 @@
 var SeccionesControlador = require('../controladores/secciones');
-var ResponseParser = require('../middleware/response-parser')
+var ResponseParser = require('../middleware/responseParser')
 
 module.exports = router=>{
   'use strict';

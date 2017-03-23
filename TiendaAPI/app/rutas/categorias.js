@@ -1,6 +1,6 @@
 "use strict";
 var CategoriasControlador = require('../controladores/categorias');
-var ResponseParser = require('../middleware/response-parser')
+var ResponseParser = require('../middleware/responseParser')
 
 module.exports = router=>{
   

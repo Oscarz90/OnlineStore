@@ -1,6 +1,6 @@
 var TiendasControlador = require('../controladores/tiendas');
-var ResponseParser = require('../middleware/response-parser')
-
+var ResponseParser = require('../middleware/responseParser');
+var ResponseErrorParser = require('../middleware/responseErrorParser');
 module.exports = router=>{
   'use strict';
   const baseURI = 'tiendas';
@@ -26,6 +26,8 @@ module.exports = router=>{
       TiendasControlador.updateOne
       , ResponseParser
     ]);
+
+  router.use(ResponseErrorParser);
 
   return baseURI;
 };
