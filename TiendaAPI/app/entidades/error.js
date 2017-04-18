@@ -1,5 +1,5 @@
 'use strict';
-class Errores{
+class Error{
   constructor(code , status , type , message , detail){
     this.code    = code;
     this.status  = status;
@@ -9,4 +9,4 @@ class Errores{
   }
 }
 
-module.exports = Errores;
+module.exports = Error;

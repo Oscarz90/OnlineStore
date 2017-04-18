@@ -10,12 +10,8 @@ function TiendaDB(){};
  */
 TiendaDB.prototype.findOne=(idTienda)=>new Promise((resolve, reject) => {
   TiendasModelo.findOne({_id:idTienda}).exec().then(resultado=>{
-    
-    console.log(resultado)
     resolve(resultado)
   }).catch(error=>{
-
-    console.log(error)
     reject(error)
   });
 });
@@ -29,7 +25,6 @@ TiendaDB.prototype.insertOne=(tienda)=>new Promise((resolve, reject) =>{
   tienda.save()
   .then(resultado=>{resolve(resultado)})
   .catch(error=>{
-    console.log(error)
     reject(error)
   });
 });

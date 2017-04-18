@@ -11,9 +11,5 @@ function responseParser(req,resp){
   resp.status(resultado.metadata.status).jsonp(resultado);
 };
 
-
-
-
-
 module.exports = responseParser;
 

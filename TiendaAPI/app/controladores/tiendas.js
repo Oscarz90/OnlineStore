@@ -33,7 +33,7 @@ TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
   //Generar entidad a guardar
   var tienda = new TiendasModelo({
     nombre : peticion.body.nombre
-    , numero:peticion.body.numero
+    , prueba : peticion.body.prueba
   });
 
   TiendasDB.insertOne(tienda)
@@ -43,10 +43,9 @@ TiendasControlador.prototype.insertOne = (peticion,respuesta,next)=>{
       next()
     })
     .catch(error=> {
-      console.log(typeof error)
       respuesta.locals.results=error;
       respuesta.locals.metadata=new Meta("id" , "0000" , 200 , "OK" , "OK" , "OK" , undefined);
-      next()
+      next(error)
     });
 };
 
